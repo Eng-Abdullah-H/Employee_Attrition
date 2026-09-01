@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project analyzes employee attrition data to identify the key factors associated with employees leaving an organization and develops a Machine Learning model to predict employee attrition.
+This project analyzes employee attrition data to identify the key factors associated with employees leaving an organization and develops Machine Learning models to predict employee attrition.
 
 The project follows a complete data science workflow:
 
@@ -43,7 +43,7 @@ The project uses the **IBM HR Analytics Employee Attrition & Performance** datas
 The dataset contains:
 
 * **1,470 employees**
-* **38 original features**
+* **35 original features**
 * **1 target variable**
 * Employee demographics
 * Job information
@@ -54,7 +54,7 @@ The dataset contains:
 * Career progression
 * Work-life balance
 
-After feature engineering, the dataset contains **39 features**.
+After feature engineering, the dataset contains **39 columns**.
 
 ---
 
@@ -86,7 +86,7 @@ Because the minority class represents only **16.12%** of the dataset, class imba
 
 ## Feature Engineering
 
-Several features were created to capture additional patterns:
+Several features were created to capture additional patterns.
 
 ### Tenure Fraction
 
@@ -111,7 +111,7 @@ Converts overtime status into a binary numerical feature:
 
 ### Job Level × Job Involvement
 
-`JobLevel_JobInvolve`
+`JobLevelInvolvement`
 
 An interaction feature combining job level and job involvement.
 
@@ -212,7 +212,7 @@ Among the strongest negative coefficients were:
 
 ## Business Insights
 
-The analysis suggests several areas that HR teams could investigate further:
+The analysis suggests several areas that HR teams could investigate further.
 
 ### Overtime
 
@@ -251,7 +251,10 @@ Employee_Attrition/
 │
 ├── .gitignore
 ├── requirements.txt
-├── Employee_Attrition.ipynb
+├── README.md
+│
+├── EDA_Employee_Attrition.ipynb
+├── model_bulding.ipynb
 │
 ├── WA_Fn-UseC_-HR-Employee-Attrition.csv
 ├── cleaned_data.csv
@@ -301,7 +304,7 @@ Employee_Attrition/
 Clone the repository:
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Eng-Abdullah-H/Employee_Attrition.git
 ```
 
 Navigate to the project directory:
@@ -310,7 +313,7 @@ Navigate to the project directory:
 cd Employee_Attrition
 ```
 
-Create and activate a virtual environment:
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -332,28 +335,51 @@ pip install -r requirements.txt
 
 ## Usage
 
-Open the notebook:
+### Exploratory Data Analysis
+
+Open the EDA notebook:
 
 ```bash
-jupyter notebook Employee_Attrition.ipynb
+jupyter notebook EDA_Employee_Attrition.ipynb
 ```
 
-The notebook contains the complete workflow from data exploration to model evaluation and prediction.
+This notebook contains the data cleaning, exploratory analysis, feature engineering, and visualization workflow.
+
+### Machine Learning
+
+Open the Machine Learning notebook:
+
+```bash
+jupyter notebook model_bulding.ipynb
+```
+
+This notebook contains:
+
+* Data preprocessing
+* Train/test splitting
+* SMOTE
+* Model training
+* Hyperparameter tuning
+* Model evaluation
+* Model interpretation
+* Prediction
 
 The trained model and preprocessing pipeline are also saved as `.pkl` files for reuse.
 
 ---
 
-## Prediction Example
+## Prediction Pipeline
 
 The saved model can be used to estimate the probability of employee attrition for new employee data.
 
-The prediction pipeline follows:
+The prediction workflow follows:
 
 ```text
 Employee Data
       ↓
 Preprocessing
+      ↓
+SMOTE
       ↓
 Logistic Regression
       ↓
@@ -366,7 +392,7 @@ Attrition Probability
 
 ## Conclusion
 
-This project demonstrates a complete Machine Learning workflow for an employee attrition problem.
+This project demonstrates a complete Machine Learning workflow for an employee attrition prediction problem.
 
 The analysis identified several important factors associated with attrition, including overtime, business travel, job role, compensation, experience, and employee satisfaction.
 
